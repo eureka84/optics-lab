@@ -12,10 +12,10 @@ class OpticsTest {
     fun test() {
         val flight = Flight(Leg(Airport("MXP"), Airport("AMS")))
 
-        val departureName: Lens<Flight, String> = Flight.outbound.departure.name
+        val outboundDepartureName: Lens<Flight, String> = Flight.outbound.departure.name
 
         Assert.assertThat(
-            departureName.modify(flight) { "BGY" },
+            outboundDepartureName.modify(flight) { "BGY" },
             CoreMatchers.equalTo(Flight(Leg(Airport("BGY"), Airport("AMS"))))
         )
     }
